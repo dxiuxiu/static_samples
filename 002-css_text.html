@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 文本属性</title>
+    <style>
+        .section{
+            margin: 30px;
+            /* border-bottom: 1px solid gray; */
+        }
+        section>header{
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+
+        /* 单行超出隐藏 */
+        .section1{
+          width: 300px;  
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        /* 指定 n 行显示超出隐藏 */
+        .section2{
+            width: 300px;  
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        /* 
+        文字两端对齐 - 
+        text-align: justify 只对非最后一行的文字做两端对齐处理
+
+        如果想让最后一行也两端对齐(只有一行文字的内容文字部分两端对齐)
+        + 1、使用 text-align-last 实现
+        + 2、根据justify对最后一行无效，我们可以新增一行，使该行文本不是最后一行，
+        */
+        .section3_normal{
+            width: 400px; 
+        }
+        .section3{
+            width: 400px; 
+            text-align: justify;
+            /* text-align-last: justify; */
+        }
+
+        .section3>header::after{
+            display: inline-block;
+            width: 100%;
+            content: '';
+            height: 0;
+        }
+
+
+
+
+
+
+
+
+
+
+        .section_text_transform{
+            /* text-transform: capitalize; */
+            /* text-transform: uppercase; */
+            /* text-transform: lowercase; */
+        }
+
+        .text{
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <!-- 常见应用 -->
+    <section class="section section1">
+        <header>单行超出隐藏</header>
+        既然如此， 我认为， 总结的来说， 那么， 问题的关键究竟为何? 既然如何， 
+        既然如何， 一般来讲，我们都必须务必慎重的考虑考虑。 学习，到底应该如何实现。 
+        老子曾经说过，知人者智，自知者明。胜人者有力，自胜者强。这启发了我， 就我个人来说，
+        学习对我的意义，不能不说非常重大。 我们不得不面对一个非常尴尬的事实，那就是， 学
+    </section>
+    <section class="section section2">
+        <header>多行文字超出隐藏</header>
+        既然如此， 我认为， 总结的来说， 那么， 问题的关键究竟为何? 既然如何， 
+        既然如何， 一般来讲，我们都必须务必慎重的考虑考虑。 学习，到底应该如何实现。 
+        老子曾经说过，知人者智，自知者明。胜人者有力，自胜者强。这启发了我， 就我个人来说，
+        学习对我的意义，不能不说非常重大。 我们不得不面对一个非常尴尬的事实，那就是， 学
+    </section>
+
+    <section class="section section3_normal">
+        <header>文字两端对齐处理前</header>
+        既然如此， 我认为， 总结的来说， 那么， 问题的关键究竟为何? 既然如何， 
+        既然如何， 一般来讲，我们都必须务必慎重的考虑考虑。 学习，到底应该如何实现。 
+        老子曾经说过，知人者智，自知者明。胜人者有力，自胜者强。这启发了我， 就我个人来说，
+        学习对我的意义，不能不说非常重大。 我们不得不面对一个非常尴尬的事实，那就是， 学
+    </section>
+    <section class="section section3">
+        <header>文字两端对齐处理后</header>
+        既然如此， 我认为， 总结的来说， 那么， 问题的关键究竟为何? 既然如何， 
+        既然如何， 一般来讲，我们都必须务必慎重的考虑考虑。 学习，到底应该如何实现。 
+        老子曾经说过，知人者智，自知者明。胜人者有力，自胜者强。这启发了我， 就我个人来说，
+        学习对我的意义，不能不说非常重大。 我们不得不面对一个非常尴尬的事实，那就是， 学
+    </section>
+
+
+    <!-- 其它 -->
+    <section class="section">
+        <p class="section_text_transform">
+            Winter was gone,spring comes.I love spring best,because its very beautiful.
+            In spring,the weather is aways sunny and rainy,its not cold and not hot,its warmer and warmer.
+            The flowers begin to open and the trees begin to turn green.The birds are singing in the sky,
+            they are happy.The animals will go out to play.Many people like to go out and enjoy the sunshine.
+            I like wearing my sweater and jeans, I like to fly kites,plant trees and see the beautiful flowers. 
+            Spring is colorful,I think its a wonderful season. Whats your favourite season?Please tell me.
+        </p>
+    </section>
+    <section class="section"></section>
+</body>
+</html>
