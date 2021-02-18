@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css border 属性应用 - </title>
+    <style>
+       
+       .section div{
+           margin: 40px;
+       }
+
+       /* 简单示例1 */
+
+        .s1_sample1{
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent; 
+            border-bottom-color: red;
+        }
+        .s1_sample2{
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent; 
+            border-top-color: red;
+        }
+        .s1_sample3{
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent; 
+            border-right-color: red;
+        }
+        .s1_sample4{
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent; 
+            border-left-color: red;
+        }
+
+         /* 简单示例2 */
+
+        .s2_sample{
+            width: 0px;
+            height: 0px;
+            border: 5px solid transparent; 
+            border-bottom-color: red;
+        }
+        .sample2{
+            /* 正值顺时针旋转 */
+            transform:rotate(180deg);
+        }
+        .sample3{
+          transform:rotate(-90deg); 
+        }
+        .sample4{
+            transform:rotate(90deg); 
+        }
+
+        /* 常见应用1 - 简单气泡框 */
+        .s3_sample{
+            position: relative;
+            width: 300px;
+            height: 100px;
+            background-color: brown;
+        }
+        .s3_sample::before{
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+
+            /* 等边三角形 */
+            /* border: 10px solid transparent;
+            border-bottom-color: red; */
+
+            /* 非等边三角形 */
+            border-top: 8px solid transparent;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 20px solid brown;
+        }
+
+        /* 常见应用2 - 边框高亮气泡框 */
+        .s4_sample{
+            position: relative;
+            width: 300px;
+            height: 100px;
+            border: 1px solid brown;
+        }
+        .s4_sample::before{
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+
+            /* 等边三角形 */
+            /* border: 10px solid transparent;
+            border-bottom-color: red; */
+
+            /* 非等边三角形 */
+            border-top: 8px solid transparent;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 20px solid brown;
+        }
+        .s4_sample::after{
+            position: absolute;
+            top: -26px;
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+
+            /* 等边三角形 */
+            /* border: 10px solid transparent;
+            border-bottom-color: red; */
+
+            /* 非等边三角形 */
+            border-top: 8px solid transparent;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 20px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 简单示例1 - 完全通过 border 特性实现三角形绘制 -->
+    <section class="section section1">
+        <!-- 向上的三角形 -->
+        <div class="s1_sample1"></div>
+        <!-- 向下的三角形 -->
+        <div class="s1_sample2"></div>
+        <!-- 向左的三角形 -->
+        <div class="s1_sample3"></div>
+        <!-- 向右的三角形 -->
+        <div class="s1_sample4"></div>
+    </section>
+
+     <!-- 简单示例2 - 结合 CSS3 transform 使用-->
+     <section class="section section2">
+        <!-- 向上的三角形 -->
+        <div class="s2_sample sample1"></div>
+        <!-- 向下的三角形 -->
+        <div class="s2_sample sample2"></div>
+        <!-- 向左的三角形 -->
+        <div class="s2_sample sample3"></div>
+        <!-- 向右的三角形 -->
+        <div class="s2_sample sample4"></div>
+    </section>
+
+    <!-- 常见应用1 - 简单气泡框 -->
+    <section class="section section3">
+        <div class="s3_sample">
+            我是一个简单气泡框
+        </div>
+    </section>
+
+     <!-- 常见应用2 - 边框高亮气泡框 -->
+     <section class="section section4">
+        <div class="s4_sample">
+            我是一个边框高亮的气泡框
+        </div>
+    </section>
+</body>
+</html>
