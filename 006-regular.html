@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    /**
+     * @desc 下划线转换驼峰
+     * @param {*} name
+     */
+    function underLine2CamelCase(name) {
+        return name.replace(/\_(\w)/g, function(all, letter){
+            return letter.toUpperCase();
+        });
+
+        // return name.replace(/\_(\W)/g, function(all, letter){
+        //     return letter.toUpperCase();
+        // });
+    }
+    /**
+     * @desc 驼峰转换下划线
+     * @param {*} name
+     * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0
+     */
+    function camelCase2UnderLine(name) {
+        // return name.replace(/([A-Z])/g,'_$1').toLowerCase();
+        // return name.replace(/[A-Z]/g,'_$1').toLowerCase(); // 
+        // return name.replace(/[A-Z]/g,'_$&').toLowerCase(); // $&	插入匹配的子串
+        
+
+        /**
+         * @input helloWordMyName
+         * @output hello_helloord_helloWordy_helloWordMyame
+         * helloWordMyName - 
+         * W -> _hello 
+         * M -> _helloWord
+         * N -> _helloWordMy
+         * hello_helloord_helloWordy_helloWordMyame RIGHT
+        */
+        // return name.replace(/([A-Z])/g,'_$`'); // $` 插入当前匹配的子串左边的内容。
+
+        /**
+         * @input helloWordMyName
+         * @output hello_ordMyNameord_yNamey_ameame
+         * helloWordMyName - 
+         * W -> _ordMyName
+         * M -> _yName
+         * N -> _ame
+         * hello_ordMyNameord_yNamey_ameame RIGHT
+        */
+        // return name.replace(/([A-Z])/g,`_$'`)  // $' - 插入当前匹配的子串右边的内容。
+        return name.replace(/([A-Z])/g,function(match,$1,offset,name){
+        // return name.replace(/[A-Z]/g,function(match,$1,offset,name){ // 如果正则表达式中没有()则 $ 相关参数就不存在了
+            // console.log('======',RegExp.rightContext) // ame
+
+            /**
+             * ====== W W 5 helloWordMyName
+             * ====== M M 9 helloWordMyName
+             * ====== N N 11 helloWordMyName
+            */
+            console.log('======',match,$1,offset,name) // ame
+
+            return `_${match}`
+        })  // $' - 插入当前匹配的子串右边的内容。
+    }
+
+    const test1= 'helloWordMyName'
+
+    // console.log(camelCase2UnderLine(test1))
+    // const reg = new RegExp(/([A-Z])/,'g')
+    // const res1=reg.test(test1) 
+    // const res1=reg.test(test1)
+
+    
+    
+    // console.log('res1',res1)
+
+    // console.log(test1.replaceAll(/([A-Z])/g,'_')) // hello_ord_y_ame
+    // console.log(test1.replaceAll(/([A-Z])/,'_')) // String.prototype.replaceAll called with a non-global RegExp argument
+
+    // console.log(test1.replace(/([A-Z])/g,'_')) // hello_ord_y_ame
+    // console.log(test1.replace(/([A-Z])/,'_')) // hello_ordMyName
+
+
+    // matchAll返回迭代器
+    // console.log(test1.matchAll(/([A-Z])/g)) // RegExpStringIterator 
+
+    // const res = Array.from(test1.matchAll(/([A-Z])/g))
+    // console.log(test1.matchAll(/([A-Z])/)) // String.prototype.matchAll called with a non-global RegExp argument
+
+    // console.log(test1.match(/([A-Z])/g)) // ["W", "M", "N"]
+    // console.log(test1.match(/([A-Z])/)) // ["W", "W", index: 5, input: "helloWordMyName", groups: undefined]
+
+
+    const test2='hello_word_my_name'
+    const res2 = underLine2CamelCase(test2)
+    // console.log('underLine2CamelCase(test2)',res2) // helloWordMyName
+
+
+
+    function test(str){
+        return str.match(/“.*”/g)
+    }
+    const str1='xcopy /s “C:\program files” “d:\”'
+    // const str1='=='
+
+    console.log(test(str1))
+    // console.log([...test(str1)])
+    
+
+
+
+    </script>
+</body>
+</html>
+
